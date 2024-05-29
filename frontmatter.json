@@ -45,8 +45,7 @@
         {
           "title": "keywords",
           "name": "keywords",
-          "type": "choice",
-          "choices": ["javascript", "validation"]
+          "type": "list"
         },
         {
           "title": "categories",

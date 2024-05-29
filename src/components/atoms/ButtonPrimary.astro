@@ -1,0 +1,31 @@
+---
+import type { HTMLAttributes, HTMLTag } from "astro/types";
+
+interface Button extends HTMLAttributes<HTMLTag> {
+  variant: "primary" | "secondary" | "tertiary" | "disabled";
+}
+
+interface ComponentA extends Button {
+  component: "a";
+}
+
+interface ComponentButton extends Button {
+  component: "button";
+}
+
+type Props = ComponentA | ComponentButton;
+
+const { component, type, ...props } = Astro.props;
+---
+
+{
+  component === "a" ? (
+    <a {...props}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} {...props}>
+      asdf
+    </button>
+  )
+}
