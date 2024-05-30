@@ -1,3 +1,11 @@
 {
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "cx",
+    "class:list",
+    ".*Styles*"
+  ],
   "[markdown]": {}
 }
