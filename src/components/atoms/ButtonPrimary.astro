@@ -1,30 +1,46 @@
 ---
-import type { HTMLAttributes, HTMLTag } from "astro/types";
+import type { HTMLAttributes } from "astro/types";
+import type { TButton } from "constants/themes/ThemeButton";
+import { ThemeButton } from "constants/themes/ThemeButton";
+import { twMerge } from "tailwind-merge";
 
-interface Button extends HTMLAttributes<HTMLTag> {
-  variant: "primary" | "secondary" | "tertiary" | "disabled";
+interface Button {
+  variant?: keyof TButton["variant"];
+  size?: keyof TButton["size"];
 }
 
-interface ComponentA extends Button {
+interface ComponentA extends Button, HTMLAttributes<"a"> {
   component: "a";
 }
 
-interface ComponentButton extends Button {
+interface ComponentButton extends Button, HTMLAttributes<"button"> {
   component: "button";
 }
 
 type Props = ComponentA | ComponentButton;
 
-const { component, type, ...props } = Astro.props;
+const {
+  component,
+  type,
+  variant = "primary",
+  size = "md",
+  ...props
+} = Astro.props;
+
+const classList = twMerge(
+  ThemeButton.base,
+  ThemeButton.variant[variant],
+  ThemeButton.size[size]
+);
 ---
 
 {
   component === "a" ? (
-    <a {...props}>
+    <a class={classList} {...props}>
       <slot />
     </a>
   ) : (
-    <button type={type} {...props}>
+    <button class={classList} type={type} {...props}>
       asdf
     </button>
   )
