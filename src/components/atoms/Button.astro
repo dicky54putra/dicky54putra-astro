@@ -1,0 +1,19 @@
+---
+import type { PropsButton } from "types/setup";
+import { twMerge } from "tailwind-merge";
+import { ThemeButton } from "constants/themes/ThemeButton";
+
+type Props = PropsButton;
+
+const { variant = "primary", size = "md", ...props } = Astro.props;
+
+const classList = twMerge(
+  ThemeButton.base,
+  ThemeButton.variant[variant],
+  ThemeButton.size[size]
+);
+---
+
+<button class={classList} {...props}>
+  <slot />
+</button>

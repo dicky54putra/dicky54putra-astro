@@ -1,10 +1,12 @@
 ---
-import ButtonPrimary from "./atoms/ButtonPrimary.astro";
+import Button from "./atoms/Button.astro";
+import Typography from "./atoms/Typography.astro";
 
 const today = new Date();
 ---
 
-<ButtonPrimary component="button" class:list="test"> test </ButtonPrimary>
+<Typography component="p"> Dicky </Typography>
+<Button class:list="test"> test </Button>
 <footer>
   &copy; {today.getFullYear()} Your name here. All rights reserved.
   <div class="social-links">

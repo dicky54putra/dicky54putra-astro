@@ -7,5 +7,9 @@
     "class:list",
     ".*Styles*"
   ],
-  "[markdown]": {}
+  "[markdown]": {},
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "editor.formatOnSave": true
 }

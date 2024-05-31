@@ -1,14 +1,14 @@
 export type TButton = typeof ThemeButton;
 
-const baseStyles = "p";
-const variantPrimaryStyles = "p";
-const variantSecondaryStyles = "p";
-const variantTertiaryStyles = "p";
-const variantDisabledStyles = "p";
-const sizeSmStyles = "p-0 ";
-const sizeMdStyles = "p-0";
-const sizeLgStyles = "p-0";
-const sizeXlStyles = "p-0";
+const baseStyles = "inline-flex items-center justify-center whitespace-nowrap";
+const variantPrimaryStyles = "bg-slate-100";
+const variantSecondaryStyles = "";
+const variantTertiaryStyles = "";
+const variantDisabledStyles = "";
+const sizeSmStyles = "";
+const sizeMdStyles = "px-6 py-2";
+const sizeLgStyles = "";
+const sizeXlStyles = "";
 
 export const ThemeButton = {
   base: baseStyles,

@@ -1,0 +1,52 @@
+---
+import { ThemeTypography } from "constants/themes/ThemeTypography";
+import { twMerge } from "tailwind-merge";
+import type { PropsHeading, PropsParagraph } from "types/setup";
+
+type Props = PropsHeading | PropsParagraph;
+
+const { component, variant = "bodySm", ...props } = Astro.props;
+
+const classList = twMerge(
+  ThemeTypography.base,
+  ThemeTypography.variant[variant]
+);
+---
+
+{
+  component === "p" ? (
+    <p class={classList} {...props}>
+      <slot />
+    </p>
+  ) : component === "span" ? (
+    <span class={classList} {...props}>
+      <slot />
+    </span>
+  ) : component === "h1" ? (
+    <h1 class={classList} {...props}>
+      <slot />
+    </h1>
+  ) : component === "h2" ? (
+    <h2 class={classList} {...props}>
+      <slot />
+    </h2>
+  ) : component === "h3" ? (
+    <h3 class={classList} {...props}>
+      <slot />
+    </h3>
+  ) : component === "h4" ? (
+    <h4 class={classList} {...props}>
+      <slot />
+    </h4>
+  ) : component === "h5" ? (
+    <h5 class={classList} {...props}>
+      <slot />
+    </h5>
+  ) : component === "h6" ? (
+    <h6 class={classList} {...props}>
+      <slot />
+    </h6>
+  ) : (
+    <slot />
+  )
+}
