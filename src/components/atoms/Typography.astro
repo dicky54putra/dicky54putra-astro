@@ -5,11 +5,12 @@ import type { PropsHeading, PropsParagraph } from "types/setup";
 
 type Props = PropsHeading | PropsParagraph;
 
-const { component, variant = "bodySm", ...props } = Astro.props;
+const { component, variant = "text-base", ...props } = Astro.props;
 
 const classList = twMerge(
   ThemeTypography.base,
-  ThemeTypography.variant[variant]
+  ThemeTypography.variant[variant],
+  props.class,
 );
 ---
 
