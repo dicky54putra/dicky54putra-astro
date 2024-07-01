@@ -1,0 +1,139 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="bg-white" style="background: white">
+    <main class="mx-auto flex max-w-[600px] flex-col gap-6 text-red-200">
+      <nav class="flex justify-center">
+        <ul
+          class="flex items-center justify-center gap-1 rounded-lg border border-solid border-slate-300 p-1"
+        >
+          <li class="flex">
+            <button
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-slate-700 px-2 py-1 text-xs font-semibold text-white"
+              >Text</button
+            >
+          </li>
+          <li class="flex">
+            <button
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-white px-2 py-1 text-xs font-semibold text-slate-700"
+              >Color</button
+            >
+          </li>
+          <li class="flex">
+            <button
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-white px-2 py-1 text-xs font-semibold text-slate-700"
+              >Effect</button
+            >
+          </li>
+          <li class="flex">
+            <button
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-white px-2 py-1 text-xs font-semibold text-slate-700"
+              >Grid</button
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <div id="form" class="flex flex-wrap gap-4">
+        <div class="flex min-w-[30%] flex-1 flex-col gap-1">
+          <label for="output" class="text-xs font-semibold text-slate-700"
+            >Output</label
+          >
+          <select
+            name="output"
+            id="output"
+            class="rounded border-solid border-slate-200 bg-slate-50 text-xs text-slate-700 focus:border-slate-700 focus:ring-slate-700"
+          >
+            <option value="scss">SCSS</option>
+            <option value="tailwind">Tailwind</option>
+          </select>
+        </div>
+        <div class="flex min-w-[30%] flex-1 flex-col gap-1">
+          <label for="color-mode" class="text-xs font-semibold text-slate-700"
+            >Color mode</label
+          >
+          <select
+            name="color-mode"
+            id="color-mode"
+            class="rounded border-solid border-slate-200 bg-slate-50 text-xs text-slate-700 focus:border-slate-700 focus:ring-slate-700"
+          >
+            <option value="hex">HEX</option>
+            <option value="tailwind">Tailwind</option>
+          </select>
+        </div>
+        <div class="flex min-w-[30%] flex-1 flex-col gap-1">
+          <label
+            for="format-naming"
+            class="text-xs font-semibold text-slate-700">Format Naming</label
+          >
+          <select
+            name="format-naming"
+            id="format-naming"
+            class="rounded border-solid border-slate-200 bg-slate-50 text-xs text-slate-700 focus:border-slate-700 focus:ring-slate-700"
+          >
+            <option value="kebab-case">kebab-case</option>
+            <option value="camelCase">camelCase</option>
+          </select>
+        </div>
+        <div class="flex min-w-[100%] flex-1 gap-1">
+          <label for="add-perfix" class="text-xs font-semibold text-slate-700"
+            >Add Prefix</label
+          >
+          <input
+            type="checkbox"
+            name="add-perfix"
+            id="add-perfix"
+            class="ml-auto rounded border-slate-200 text-slate-700 focus:ring-slate-700"
+          />
+        </div>
+        <div class="flex min-w-[100%] flex-1 gap-1">
+          <label
+            for="use-rem-font-size"
+            class="text-xs font-semibold text-slate-700"
+            >Use rem font size</label
+          >
+          <input
+            type="checkbox"
+            name="use-rem-font-size"
+            id="use-rem-font-size"
+            class="ml-auto rounded border-slate-200 text-slate-700 focus:ring-slate-700"
+          />
+        </div>
+        <div class="flex min-w-[100%] flex-1 flex-col gap-1">
+          <label
+            for="root-font-size"
+            class="text-xs font-semibold text-slate-700">Root font size</label
+          >
+          <select
+            name="root-font-size"
+            id="root-font-size"
+            class="rounded border-solid border-slate-200 bg-slate-50 text-xs text-slate-700 focus:border-slate-700 focus:ring-slate-700"
+          >
+            <option value="16px">16px</option>
+            <option value="17px">17px</option>
+          </select>
+        </div>
+        <div class="flex min-w-[100%] flex-1 flex-col items-start gap-1">
+          <button
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-slate-700 px-2 py-1 text-xs font-semibold text-white"
+            >Generate</button
+          >
+        </div>
+      </div>
+      <div class="flex min-w-[100%] flex-1 flex-col items-start">
+        <textarea
+          name=""
+          id=""
+          class="rounded border-solid border-slate-200 bg-slate-50 text-xs text-slate-700 focus:border-slate-700 focus:ring-slate-700"
+          rows="8"></textarea>
+      </div>
+    </main>
+  </body>
+</html>
