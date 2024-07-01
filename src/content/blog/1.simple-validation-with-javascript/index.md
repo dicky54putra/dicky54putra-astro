@@ -245,7 +245,7 @@ const componentsForm = () => {
           default:
             break;
         }
-      }
+      },
     );
   };
   init();

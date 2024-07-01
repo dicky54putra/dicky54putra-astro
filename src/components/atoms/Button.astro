@@ -10,10 +10,16 @@ const { variant = "primary", size = "md", ...props } = Astro.props;
 const classList = twMerge(
   ThemeButton.base,
   ThemeButton.variant[variant],
-  ThemeButton.size[size]
+  ThemeButton.size[size],
+  props.class,
 );
+console.log(classList);
 ---
 
 <button class={classList} {...props}>
   <slot />
 </button>
+
+<script>
+  console.log("test");
+</script>

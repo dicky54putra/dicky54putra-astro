@@ -1,0 +1,109 @@
+---
+import { siteMetadata, siteUrl } from "constants/utils/site-config";
+import Article from "./article.astro";
+import OpenGraph from "./open-graph.astro";
+import Profile from "./profile.astro";
+import type { SEOProps } from "./shared";
+import Twitter from "./twitter.astro";
+
+const {
+  description = "",
+  title,
+  keywords,
+  canonical,
+  type,
+  publishedTime,
+  editedTime,
+  shareImage,
+  noindex,
+} = Astro.props as SEOProps;
+
+const metaDescription = description || siteMetadata.description;
+const metaKeywords = keywords ? keywords.join(",") : siteMetadata.keywords;
+const metaImage = `${siteUrl}${shareImage ?? "/share-banner.png"}`;
+
+const ogType = type ?? "blog";
+
+const removeTrailingSlash = (str: string) =>
+  str.endsWith("/") ? str.slice(0, -1) : str;
+
+const currentPath = removeTrailingSlash(siteMetadata.siteUrl + "");
+---
+
+<title>
+  {title ? `${title} | ${siteMetadata.title}` : siteMetadata.title}
+</title>
+<>
+  {
+    canonical ? (
+      <link rel="canonical" href={canonical} />
+    ) : (
+      <link rel="canonical" href={currentPath} />
+    )
+  }
+</>
+<meta property="name" content={siteMetadata.title} />
+<meta name="description" content={metaDescription} />
+<meta property="keywords" content={metaKeywords} />
+<link
+  rel="preload"
+  href="/fonts/Figtree/Figtree-VariableFont_wght.ttf"
+  as="font"
+  type="font/ttf"
+  crossorigin
+/>
+
+{
+  // If the page is non-indexed, exclude it from any search results with the "robots" tag
+  // https://developers.google.com/search/docs/crawling-indexing/block-indexing
+  noindex ? <meta name="robots" content="noindex, nofollow" /> : null
+}
+
+<Twitter
+  title={title}
+  metaDescription={metaDescription}
+  siteMetadata={siteMetadata}
+  metaImage={metaImage}
+  type={type}
+/>
+<OpenGraph
+  currentPath={currentPath}
+  siteMetadata={siteMetadata}
+  title={title}
+  metaDescription={metaDescription}
+  metaImage={metaImage}
+  ogType={ogType}
+/>
+<link
+  rel="alternate"
+  href={`${siteUrl}/atom.xml`}
+  type="application/atom+xml"
+  title={`${siteMetadata.title} | Atom Feed`}
+/>
+<link
+  rel="alternate"
+  href={`${siteUrl}/rss.xml`}
+  type="application/rss+xml"
+  title={`${siteMetadata.title} | RSS Feed`}
+/>
+<link
+  rel="alternate"
+  href={`${siteUrl}/feed.json`}
+  type="application/json"
+  title={`${siteMetadata.title} | JSON Feed`}
+/>
+<>
+  {
+    type === "article" && (
+      <Article
+        keywords={keywords}
+        editedTime={editedTime}
+        publishedTime={publishedTime}
+      />
+    )
+  }
+</>
+<>
+  {type === "profile" && <Profile />}
+</>
+<slot />
