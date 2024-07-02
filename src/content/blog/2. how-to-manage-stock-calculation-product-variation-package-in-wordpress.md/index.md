@@ -13,6 +13,7 @@ tags:
   - stock calculation
 pubDate: 2024-05-29T08:38:27.490Z
 description: Managing stock for product variations in WordPress, particularly when dealing with bundled products, can be a bit tricky.
+slug: manage-stock-calculation-product-variation-package-wp
 ---
 
 Managing stock for product variations in WordPress, particularly when dealing with bundled products, can be a bit tricky. However, with the right approach and tools, you can efficiently track and reduce the stock of individual items included in a package. This guide will walk you through the process of setting up a product variable as a bundle product in WooCommerce, ensuring that stock levels are accurately maintained.
