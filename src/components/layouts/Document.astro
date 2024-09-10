@@ -1,10 +1,11 @@
 ---
+import SEO from "@/components/atoms/seo/seo.astro";
+import "@/styles/global.css";
 import { ViewTransitions } from "astro:transitions";
-import SEO from "components/atoms/seo/seo.astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,7 +13,7 @@ import SEO from "components/atoms/seo/seo.astro";
 
     <ViewTransitions fallback="swap" />
   </head>
-  <body>
+  <body class="bg-background antialiase min-h-screen font-sans">
     <slot />
   </body>
 </html>

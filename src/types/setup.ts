@@ -1,6 +1,6 @@
+import type { TButton } from "@/constants/themes/ThemeButton";
+import type { TTypography } from "@/constants/themes/ThemeTypography";
 import type { HTMLAttributes } from "astro/types";
-import type { TButton } from "constants/themes/ThemeButton";
-import type { TTypography } from "constants/themes/ThemeTypography";
 
 export interface PropsButton extends HTMLAttributes<"button"> {
   variant?: keyof TButton["variant"];

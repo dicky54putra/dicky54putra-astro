@@ -1,7 +1,8 @@
 ---
-import Document from "components/layouts/Document.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import Button from "@/components/atoms/Button.astro";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import Document from "@/components/layouts/Document.astro";
 ---
 
 <Document>
@@ -34,7 +35,8 @@ import Header from "../components/Header.astro";
       </li>
       <li>
         Customize the blog post page layout in <code
-          >src/layouts/BlogPost.astro</code>
+          >src/layouts/BlogPost.astro</code
+        >
       </li>
     </ul>
     <p>
@@ -50,5 +52,6 @@ import Header from "../components/Header.astro";
       </a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
     </p>
   </main>
+  <Button variant="link" size="sm">sdf</Button>
   <Footer />
 </Document>

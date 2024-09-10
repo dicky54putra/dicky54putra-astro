@@ -1,15 +1,16 @@
 ---
-import { ThemeTypography } from "constants/themes/ThemeTypography";
+import { ThemeTypography } from "@/constants/themes/ThemeTypography";
+import type { PropsHeading, PropsParagraph } from "@/types/setup";
 import { twMerge } from "tailwind-merge";
-import type { PropsHeading, PropsParagraph } from "types/setup";
 
 type Props = PropsHeading | PropsParagraph;
 
-const { component, variant = "text-base", ...props } = Astro.props;
+const { component, variant = "text-base", ...props } = Astro.props as Props;
 
+console.log(variant);
 const classList = twMerge(
   ThemeTypography.base,
-  ThemeTypography.variant[variant],
+  // ThemeTypography.variant[variant],
   props.class,
 );
 ---

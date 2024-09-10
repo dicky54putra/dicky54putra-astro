@@ -1,22 +1,23 @@
 ---
-import type { PropsButton } from "types/setup";
-import { twMerge } from "tailwind-merge";
-import { ThemeButton } from "constants/themes/ThemeButton";
+import { cn } from "@/lib/utils";
+import type { VariantProps } from "class-variance-authority";
+import { buttonVariants } from "@/components/ui/button";
 
-type Props = PropsButton;
+interface Props
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {}
 
-const { variant = "primary", size = "md", ...props } = Astro.props;
-
-const classList = twMerge(
-  ThemeButton.base,
-  ThemeButton.variant[variant],
-  ThemeButton.size[size],
-  props.class,
+const {
+  variant = "default",
+  size = "default",
+  className: primitiveClassName,
+} = Astro.props;
+const className = cn(
+  buttonVariants({ variant, size, className: primitiveClassName }),
 );
-console.log(classList);
 ---
 
-<button class={classList} {...props}>
+<button class={className}>
   <slot />
 </button>
 
