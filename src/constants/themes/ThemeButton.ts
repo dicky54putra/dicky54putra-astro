@@ -1,7 +1,7 @@
 export type TButton = typeof ThemeButton;
 
 const baseStyles = "inline-flex items-center justify-center whitespace-nowrap";
-const variantPrimaryStyles = "bg-slate-100";
+const variantPrimaryStyles = "";
 const variantSecondaryStyles = "";
 const variantTertiaryStyles = "";
 const variantDisabledStyles = "";

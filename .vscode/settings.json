@@ -4,9 +4,15 @@
     "className",
     "ngClass",
     "cx",
+    "theme",
     "class:list",
     ".*Styles*"
   ],
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "javascript": "javascript",
+    "css": "css"
+},
   "[markdown]": {},
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit"

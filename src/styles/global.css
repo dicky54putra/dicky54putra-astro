@@ -64,3 +64,13 @@
     --chart-5: 340 75% 55%;
   }
 }
+
+h1 {
+  display: none;
+}
+
+/* @layer base {
+  h1 {
+    @apply text-gray-600;
+  }
+} */
