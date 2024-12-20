@@ -33,15 +33,13 @@ const currentPath = removeTrailingSlash(siteMetadata.siteUrl + "");
 <title>
   {title ? `${title} | ${siteMetadata.title}` : siteMetadata.title}
 </title>
-<>
-  {
-    canonical ? (
-      <link rel="canonical" href={canonical} />
-    ) : (
-      <link rel="canonical" href={currentPath} />
-    )
-  }
-</>
+{
+  canonical ? (
+    <link rel="canonical" href={canonical} />
+  ) : (
+    <link rel="canonical" href={currentPath} />
+  )
+}
 <meta property="name" content={siteMetadata.title} />
 <meta name="description" content={metaDescription} />
 <meta property="keywords" content={metaKeywords} />
@@ -92,18 +90,14 @@ const currentPath = removeTrailingSlash(siteMetadata.siteUrl + "");
   type="application/json"
   title={`${siteMetadata.title} | JSON Feed`}
 />
-<>
-  {
-    type === "article" && (
-      <Article
-        keywords={keywords}
-        editedTime={editedTime}
-        publishedTime={publishedTime}
-      />
-    )
-  }
-</>
-<>
-  {type === "profile" && <Profile />}
-</>
+{
+  type === "article" && (
+    <Article
+      keywords={keywords}
+      editedTime={editedTime}
+      publishedTime={publishedTime}
+    />
+  )
+}
+{type === "profile" && <Profile />}
 <slot />
