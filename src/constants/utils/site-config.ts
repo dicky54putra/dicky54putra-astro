@@ -30,13 +30,13 @@ if (parent.startsWith("localhost")) {
 }
 
 const siteMetadata = {
-  title: `Unicorn Utterances`,
+  title: `Dicky54putra`,
   description: `Learning programming from magically majestic words. A place to learn about all sorts of programming topics from entry-level concepts to advanced abstractions`,
   siteUrl,
   repoPath: "dicky54putra/dicky54putra-astro",
-  relativeToPosts: "/content/blog",
+  relativeToPosts: "/content/blogs",
   keywords:
-    "programming,development,mobile,web,game,software engineering,javascript,angular,react,computer science",
+    "programming,development,mobile,web,software engineering,javascript,typescript,react,computer science",
   twitterHandle: "@dicky54puta",
 };
 

@@ -16,4 +16,13 @@ export default defineConfig({
     }),
     react(),
   ],
+  markdown: {
+    shikiConfig: {
+      wrap: true,
+      themes: {
+        light: "one-dark-pro",
+        dark: "one-dark-pro",
+      },
+    },
+  },
 });
